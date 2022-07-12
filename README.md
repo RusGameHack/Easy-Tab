@@ -11,30 +11,53 @@ Let's look at which line is responsible for what
 After we got the variables, we have a function with a loop
 
 function hideTabContent(a) {
+
         for (let i = a; i < tabContent.length; i++){
-            tabContent[i].classList.remove('show');//Removing the class that will show the content of all blocks
-            tabContent[i].classList.add('hide');//Adding a class that hides the content of all blocks
+        
+                tabContent[i].classList.remove('show');//Removing the class that will show the content of all blocks
+                
+                tabContent[i].classList.add('hide');//Adding a class that hides the content of all blocks
+        
         }
-    }
+
+}
+
 hideTabContent(1); //Starting with block number 1 to hide all blocks except [0], because we are creating a array tabContent
 
 function showTabContent(b) { 
+    
     if(tabContent[b].classList.contains('hide')){ // Here we are checking the block whose content we want to show. If we find the hide class in the block that needs to be shown, then we delete it
+    
         tabContent[b].classList.remove('hide');
+        
         tabContent[b].classList.add('show');
+    
     }
+
 }
+
 info.addEventListener('click', function(event){//Button click event
-    let target = event.target;
-    if (target && target.classList.contains('info-header-tab')){
-        for(let i = 0; i < tab.length; i++){
-            if (target == tab[i]){ //Here is the principle: when we click, we get target (the number of the clicked element) and if target matches the number of the button, then we remove the active element and assign the show class to the block that we need
-                hideTabContent(0);
-                showTabContent(i);
-                break;
-            }
+
+        let target = event.target;
+    
+        if (target && target.classList.contains('info-header-tab')){
+        
+                for(let i = 0; i < tab.length; i++){
+            
+                        if (target == tab[i]){ //Here is the principle: when we click, we get target (the number of the clicked element) and if target matches the number of the button, then we remove the active element and assign the show class to the block that we need
+                
+                                hideTabContent(0);
+                
+                                showTabContent(i);
+                
+                                break;
+            
+                        }
+        
+                }
+    
         }
-    }
+
 });
 
 That's it! I hope my script will help you!
